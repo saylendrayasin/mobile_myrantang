@@ -1,5 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+} from 'react-native';
+
+import Cta from '../components/Cta';
 
 class Home extends Component {
   constructor(props) {
@@ -8,11 +17,18 @@ class Home extends Component {
   }
   render() {
     return (
-      <View>
-        <Text>Home</Text>
-      </View>
+      <ScrollView style={styles.headers}>
+        <Cta />
+      </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  headers: {
+    padding: 0,
+    flex: 1,
+  },
+});
 
 export default Home;
