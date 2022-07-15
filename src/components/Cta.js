@@ -10,30 +10,25 @@ class Cta extends Component {
     return (
       <View style={{padding: 20}}>
         <View style={styles.header}>
-          <View style={styles.headerHoriz}>
-            <View style={styles.headerVerticalLeft}>
-              <Text>Hello World</Text>
-              <TouchableOpacity style={styles.btnGetStarted}>
-                <Text>Get Started</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.headerVerticalRight}>
-              <Image
-                style={styles.imgBanana}
-                source={require('../image/Banana.jpg')}
-                resizeMode="stretch"
-              />
-              <Image
-                source={require('../image/Ellipse5.png')}
-                style={styles.imgElips1}
-                resizeMode="stretch"
-              />
-              <Image
-                source={require('../image/Ellipse6.png')}
-                style={styles.imgElips2}
-                resizeMode="stretch"
-              />
-            </View>
+          <View style={styles.headerVerticalLeft}>
+            <Text>Hello World</Text>
+            <TouchableOpacity style={styles.btnGetStarted}>
+              <Text>Get Started</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.headerVerticalRight}>
+            <Image
+              style={styles.imgBanana}
+              source={require('../image/Banana.jpg')}
+            />
+            <Image
+              source={require('../image/Ellipse5.png')}
+              style={styles.imgElips1}
+            />
+            <Image
+              source={require('../image/Ellipse6.png')}
+              style={styles.imgElips2}
+            />
           </View>
         </View>
       </View>
@@ -45,23 +40,22 @@ const styles = StyleSheet.create({
   header: {
     borderRadius: 20,
     backgroundColor: '#95CD41',
-    padding: 18,
+    flex: 1,
+    flexDirection: 'row',
     // paddingBottom: 40,
     marginVertical: 8,
     // marginHorizontal: 0,
   },
 
-  headerHoriz: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-
   headerVerticalLeft: {
     flex: 0.6,
+    padding: 18,
   },
 
   headerVerticalRight: {
     flex: 0.4,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
   },
 
   btnGetStarted: {
@@ -76,16 +70,21 @@ const styles = StyleSheet.create({
 
   imgBanana: {
     zIndex: 3,
-    top: -50,
-    right: -5,
+    position: 'absolute',
+    top: -35,
+    right: -10,
   },
 
   imgElips1: {
     zIndex: 2,
+    position: 'relative',
   },
 
   imgElips2: {
     zIndex: 1,
+    position: 'absolute',
+    top: 60,
+    right: 50,
   },
 });
 
