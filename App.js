@@ -9,6 +9,8 @@ import Home from './src/screens/Home';
 import Exam from './src/screens/Exam1';
 import Splash from './src/screens/Splash';
 import Login from './src/screens/Login';
+import Regis from './src/screens/Register';
+import Po from './src/screens/on_board/pageone';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,8 +23,9 @@ function App() {
     //     <Tab.Screen name="Exam" component={Exam} />
     //   </Tab.Navigator>
     // </NavigationContainer>
+
     <View style={{flex: 1}}>
-      <Login />
+      <Po />
     </View>
   );
 }

@@ -1,4 +1,11 @@
 import React, {Component} from 'react';
+import {
+  Collapse,
+  CollapseHeader,
+  CollapseBody,
+  AccordionList,
+} from 'accordion-collapse-react-native';
+
 // import Carousel from 'react-native-snap-carousel';
 
 import {

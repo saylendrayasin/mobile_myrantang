@@ -6,12 +6,17 @@ import {
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
+  TextInput,
+  ScrollView,
 } from 'react-native';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      username: '',
+      password: '',
+    };
   }
   render() {
     return (
@@ -31,14 +36,48 @@ class Login extends Component {
             </View>
           </ImageBackground>
         </View>
-        <View style={styles.botBack}>
+
+        <ScrollView style={styles.botBack}>
           <View style={styles.viewTxtWelcome}>
             <Text style={styles.txtSecond}>Welcome</Text>
             <Text style={styles.txtSecond}>Back</Text>
           </View>
+
           <View style={styles.viewTextInput}>
             <Text style={styles.txtLogin}>Login</Text>
+            <SafeAreaView style={{flex: 1, marginTop: 10}}>
+              <TextInput
+                value={this.state.username}
+                style={{
+                  flex: 1,
+                  borderWidth: 1,
+                  borderColor: '#95CD41',
+                  borderRadius: 10,
+                  backgroundColor: '#F6FFE8',
+                  padding: 10,
+                }}
+                onChangeText={value => this.setState({username: value})}
+                placeholder="Username"
+              />
+            </SafeAreaView>
+            <SafeAreaView style={{flex: 1, marginTop: 10}}>
+              <TextInput
+                value={this.state.password}
+                style={{
+                  flex: 1,
+                  borderWidth: 1,
+                  borderColor: '#95CD41',
+                  borderRadius: 10,
+                  backgroundColor: '#F6FFE8',
+                  padding: 10,
+                }}
+                onChangeText={value => this.setState({password: value})}
+                placeholder="Password"
+                secureTextEntry={true}
+              />
+            </SafeAreaView>
           </View>
+
           <View style={styles.viewBtnGetStarted}>
             <TouchableOpacity style={styles.btnGetStarted}>
               <Text style={styles.TxtGetStarted}>Get Started</Text>
@@ -50,7 +89,7 @@ class Login extends Component {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -105,16 +144,17 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   viewTxtWelcome: {
-    flex: 1,
-    backgroundColor: 'crimson',
+    flex: 0.3,
   },
   viewTextInput: {
-    flex: 1,
+    flex: 0.4,
     justifyContent: 'flex-start',
+    marginTop: 20,
   },
 
   viewBtnGetStarted: {
-    flex: 1,
+    flex: 0.4,
+    marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
