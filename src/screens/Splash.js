@@ -1,34 +1,28 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
 
-class Splash extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <View style={styles.headers}>
-        <View style={styles.imgTopRightAts}>
-          <Image source={require('../image/SplashTopRightAts.png')} />
-        </View>
-        <View style={styles.imgTopRightBwh}>
-          <Image source={require('../image/SplashTopRightBwh.png')} />
-        </View>
-        <View style={styles.textPosition}>
-          <Text style={styles.txtMy}>My</Text>
-          <Text style={styles.txtRantang}>Rantang</Text>
-        </View>
-        <View style={styles.imgBotLeftAts}>
-          <Image source={require('../image/SplashBotLeftAts.png')} />
-        </View>
-        <View style={styles.imgBotLeftBwh}>
-          <Image source={require('../image/SplashBotLeftBwh.png')} />
-        </View>
+const Splash = () => {
+  return (
+    <View style={styles.headers}>
+      <View style={styles.imgTopRightAts}>
+        <Image source={require('../image/SplashTopRightAts.png')} />
       </View>
-    );
-  }
-}
+      <View style={styles.imgTopRightBwh}>
+        <Image source={require('../image/SplashTopRightBwh.png')} />
+      </View>
+      <View style={styles.textPosition}>
+        <Text style={styles.txtMy}>My</Text>
+        <Text style={styles.txtRantang}>Rantang</Text>
+      </View>
+      <View style={styles.imgBotLeftAts}>
+        <Image source={require('../image/SplashBotLeftAts.png')} />
+      </View>
+      <View style={styles.imgBotLeftBwh}>
+        <Image source={require('../image/SplashBotLeftBwh.png')} />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   headers: {

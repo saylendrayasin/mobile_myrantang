@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   ImageBackground,
@@ -10,90 +10,69 @@ import {
   ScrollView,
 } from 'react-native';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: '',
-    };
-  }
-  render() {
-    return (
-      <View style={styles.headers}>
-        <View style={styles.topBack}>
-          <ImageBackground
-            source={require('../image/LoginBack.png')}
-            style={styles.imgBack}
-            resizeMode="cover">
-            <View style={styles.viewMyRantang}>
-              <Text style={styles.txtMy}>My</Text>
-              <Text style={styles.txtRantang}>Rantang</Text>
-            </View>
-            <View style={styles.viewTxt}>
-              <Text style={styles.txtFirst}>Selamat Datang...</Text>
-              <Text style={styles.txtFirst}>Selamat Belanja</Text>
-            </View>
-          </ImageBackground>
+const Login = () => {
+  const [username, changeUsername] = useState('');
+  const [pass, changePass] = useState('');
+  return (
+    <View style={styles.headers}>
+      <View style={styles.topBack}>
+        <ImageBackground
+          source={require('../image/LoginBack.png')}
+          style={styles.imgBack}
+          resizeMode="cover">
+          <View style={styles.viewMyRantang}>
+            <Text style={styles.txtMy}>My</Text>
+            <Text style={styles.txtRantang}>Rantang</Text>
+          </View>
+          <View style={styles.viewTxt}>
+            <Text style={styles.txtFirst}>Selamat Datang...</Text>
+            <Text style={styles.txtFirst}>Selamat Belanja</Text>
+          </View>
+        </ImageBackground>
+      </View>
+
+      <ScrollView style={styles.botBack}>
+        <View style={styles.viewTxtWelcome}>
+          <Text style={styles.txtSecond}>Welcome</Text>
+          <Text style={styles.txtSecond}>Back</Text>
         </View>
 
-        <ScrollView style={styles.botBack}>
-          <View style={styles.viewTxtWelcome}>
-            <Text style={styles.txtSecond}>Welcome</Text>
-            <Text style={styles.txtSecond}>Back</Text>
-          </View>
+        <View style={styles.viewTextInput}>
+          <Text style={styles.txtLogin}>Login</Text>
+          <SafeAreaView style={styles.sav}>
+            <TextInput
+              value={username}
+              onChangeText={changeUsername}
+              style={styles.textinputEmail}
+              placeholder="Username"
+            />
+          </SafeAreaView>
+          <SafeAreaView style={styles.sav}>
+            <TextInput
+              value={pass}
+              onChangeText={changePass}
+              style={styles.textinputPass}
+              placeholder="Password"
+              secureTextEntry={true}
+            />
+          </SafeAreaView>
+        </View>
 
-          <View style={styles.viewTextInput}>
-            <Text style={styles.txtLogin}>Login</Text>
-            <SafeAreaView style={{flex: 1, marginTop: 10}}>
-              <TextInput
-                value={this.state.username}
-                style={{
-                  flex: 1,
-                  borderWidth: 1,
-                  borderColor: '#95CD41',
-                  borderRadius: 10,
-                  backgroundColor: '#F6FFE8',
-                  padding: 10,
-                }}
-                onChangeText={value => this.setState({username: value})}
-                placeholder="Username"
-              />
-            </SafeAreaView>
-            <SafeAreaView style={{flex: 1, marginTop: 10}}>
-              <TextInput
-                value={this.state.password}
-                style={{
-                  flex: 1,
-                  borderWidth: 1,
-                  borderColor: '#95CD41',
-                  borderRadius: 10,
-                  backgroundColor: '#F6FFE8',
-                  padding: 10,
-                }}
-                onChangeText={value => this.setState({password: value})}
-                placeholder="Password"
-                secureTextEntry={true}
-              />
-            </SafeAreaView>
-          </View>
-
-          <View style={styles.viewBtnGetStarted}>
-            <TouchableOpacity style={styles.btnGetStarted}>
-              <Text style={styles.TxtGetStarted}>Get Started</Text>
+        <View style={styles.viewBtnGetStarted}>
+          <TouchableOpacity style={styles.btnGetStarted}>
+            <Text style={styles.TxtGetStarted}>Login</Text>
+          </TouchableOpacity>
+          <View style={styles.viewSignUp}>
+            <Text>Don't have an account? </Text>
+            <TouchableOpacity>
+              <Text style={styles.txtSignUp}>Sign Up</Text>
             </TouchableOpacity>
-            <View style={styles.viewSignUp}>
-              <Text>Don't have an account? </Text>
-              <TouchableOpacity>
-                <Text style={styles.txtSignUp}>Sign Up</Text>
-              </TouchableOpacity>
-            </View>
           </View>
-        </ScrollView>
-      </View>
-    );
-  }
-}
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   headers: {
@@ -162,6 +141,23 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     color: '#95CD41',
+  },
+  sav: {flex: 1, marginTop: 10},
+  textinputEmail: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#95CD41',
+    borderRadius: 10,
+    backgroundColor: '#F6FFE8',
+    padding: 10,
+  },
+  textinputPass: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#95CD41',
+    borderRadius: 10,
+    backgroundColor: '#F6FFE8',
+    padding: 10,
   },
   btnGetStarted: {
     width: 250,

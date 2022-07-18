@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   Collapse,
   CollapseHeader,
@@ -19,20 +19,14 @@ import {
 
 import Crs from '../components/Carousel';
 
-class Exam extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <View style={styles.headers}>
-        <Text>Hello</Text>
-        <Crs />
-      </View>
-    );
-  }
-}
+const Exam = () => {
+  return (
+    <View style={styles.headers}>
+      <Text>Hello</Text>
+      <Crs />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   headers: {

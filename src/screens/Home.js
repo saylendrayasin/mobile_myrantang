@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -10,19 +10,13 @@ import {
 
 import Cta from '../components/Cta';
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <ScrollView style={styles.headers}>
-        <Cta />
-      </ScrollView>
-    );
-  }
-}
+const Home = () => {
+  return (
+    <ScrollView style={styles.headers}>
+      <Cta />
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   headers: {

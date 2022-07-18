@@ -1,40 +1,34 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
-class Cta extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <View style={{padding: 20}}>
-        <View style={styles.header}>
-          <View style={styles.headerVerticalLeft}>
-            <Text>Hello World</Text>
-            <TouchableOpacity style={styles.btnGetStarted}>
-              <Text>Get Started</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.headerVerticalRight}>
-            <Image
-              style={styles.imgBanana}
-              source={require('../image/Banana.jpg')}
-            />
-            <Image
-              source={require('../image/Ellipse5.png')}
-              style={styles.imgElips1}
-            />
-            <Image
-              source={require('../image/Ellipse6.png')}
-              style={styles.imgElips2}
-            />
-          </View>
+const Cta = () => {
+  return (
+    <View style={{padding: 20}}>
+      <View style={styles.header}>
+        <View style={styles.headerVerticalLeft}>
+          <Text>Hello World</Text>
+          <TouchableOpacity style={styles.btnGetStarted}>
+            <Text>Get Started</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.headerVerticalRight}>
+          <Image
+            style={styles.imgBanana}
+            source={require('../image/Banana.jpg')}
+          />
+          <Image
+            source={require('../image/Ellipse5.png')}
+            style={styles.imgElips1}
+          />
+          <Image
+            source={require('../image/Ellipse6.png')}
+            style={styles.imgElips2}
+          />
         </View>
       </View>
-    );
-  }
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   header: {

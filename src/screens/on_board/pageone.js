@@ -1,50 +1,44 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
 
-class OnBoardOne extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <View style={styles.headers}>
-        <View style={{flex: 1, zIndex: 3, alignItems: 'center'}}>
-          <Text style={styles.txtHeaderAts}>lorem kontol</Text>
-          <Text style={styles.txtHeaderBwh}>Rantang</Text>
-        </View>
-        <View style={styles.viewimgTopRightAts}>
-          <Image source={require('../../image/SplashTopRightAts.png')} />
-        </View>
-        <View style={styles.viewimgTopRightBwh}>
-          <Image source={require('../../image/SplashTopRightBwh.png')} />
-        </View>
-        <View style={styles.viewimgCenAts}>
-          <Image
-            source={require('../../image/ImgBundaranMakanan.png')}
-            style={styles.imgCenAts}
-          />
-        </View>
-        <View style={styles.viewimgCenBwh}>
-          <Image
-            source={require('../../image/ImgMakananBundar.png')}
-            style={styles.imgCenBwh}
-          />
-        </View>
-        <View style={styles.viewtxtFooter}>
-          <Text style={styles.txtFooterAts}>My</Text>
-          <Text style={styles.txtFooterBwh}>Rantang</Text>
-        </View>
-        <View style={styles.viewimgBotLeftAts}>
-          <Image source={require('../../image/SplashBotLeftAts.png')} />
-        </View>
-        <View style={styles.viewimgBotLeftBwh}>
-          <Image source={require('../../image/SplashBotLeftBwh.png')} />
-        </View>
+const OnBoardOne = () => {
+  return (
+    <View style={styles.headers}>
+      <View style={{flex: 1, zIndex: 3, alignItems: 'center'}}>
+        <Text style={styles.txtHeaderAts}>lorem Ipsun Dolor</Text>
+        <Text style={styles.txtHeaderBwh}>Rantang</Text>
       </View>
-    );
-  }
-}
+      <View style={styles.viewimgTopRightAts}>
+        <Image source={require('../../image/SplashTopRightAts.png')} />
+      </View>
+      <View style={styles.viewimgTopRightBwh}>
+        <Image source={require('../../image/SplashTopRightBwh.png')} />
+      </View>
+      <View style={styles.viewimgCenAts}>
+        <Image
+          source={require('../../image/ImgBundaranMakanan.png')}
+          style={styles.imgCenAts}
+        />
+      </View>
+      <View style={styles.viewimgCenBwh}>
+        <Image
+          source={require('../../image/ImgMakananBundar.png')}
+          style={styles.imgCenBwh}
+        />
+      </View>
+      <View style={styles.viewtxtFooter}>
+        <Text style={styles.txtFooterAts}>My</Text>
+        <Text style={styles.txtFooterBwh}>Rantang</Text>
+      </View>
+      <View style={styles.viewimgBotLeftAts}>
+        <Image source={require('../../image/SplashBotLeftAts.png')} />
+      </View>
+      <View style={styles.viewimgBotLeftBwh}>
+        <Image source={require('../../image/SplashBotLeftBwh.png')} />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   headers: {
@@ -73,8 +67,8 @@ const styles = StyleSheet.create({
   viewimgTopRightBwh: {
     flex: 1,
     position: 'absolute',
-    right: 0,
-    top: 70,
+    right: -20,
+    top: 80,
     zIndex: 1,
   },
   viewimgBotLeftAts: {

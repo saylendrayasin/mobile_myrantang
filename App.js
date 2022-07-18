@@ -17,16 +17,16 @@ const Tab = createBottomTabNavigator();
 
 function App() {
   return (
-    // <NavigationContainer>
-    //   <Tab.Navigator>
-    //     <Tab.Screen name="Home" component={Home} />
-    //     <Tab.Screen name="Exam" component={Exam} />
-    //   </Tab.Navigator>
-    // </NavigationContainer>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Exam" component={Exam} />
+      </Tab.Navigator>
+    </NavigationContainer>
 
-    <View style={{flex: 1}}>
-      <Po />
-    </View>
+    // <View style={{flex: 1}}>
+    //   <Splash />
+    // </View>
   );
 }
 
