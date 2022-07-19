@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
 
-const Splash = () => {
+import {StackActions} from '@react-navigation/native';
+
+const Splash = ({navigation}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.dispatch(StackActions.replace('Login'));
+    }, 1000);
+  }, [navigation]);
+
   return (
     <View style={styles.headers}>
       <View style={styles.imgTopRightAts}>

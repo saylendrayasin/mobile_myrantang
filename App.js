@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -11,6 +11,7 @@ import Splash from './src/screens/Splash';
 import Login from './src/screens/Login';
 import Regis from './src/screens/Register';
 import Po from './src/screens/on_board/pageone';
+import Pf from './src/screens/on_board/pagefour';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -25,7 +26,7 @@ function App() {
     // </NavigationContainer>
 
     <View style={{flex: 1}}>
-      <Login />
+      <Pf />
     </View>
   );
 }

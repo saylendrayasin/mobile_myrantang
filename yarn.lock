@@ -2939,6 +2939,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rneui/base@npm:^4.0.0-rc.5":
+  version: 4.0.0-rc.5
+  resolution: "@rneui/base@npm:4.0.0-rc.5"
+  dependencies:
+    "@types/react-native-vector-icons": ^6.4.10
+    color: ^3.2.1
+    deepmerge: ^4.2.2
+    hoist-non-react-statics: ^3.3.2
+    react-native-ratings: ^8.1.0
+    react-native-size-matters: ^0.4.0
+  peerDependencies:
+    react-native-safe-area-context: ^3.1.9 || ^4.0.0
+    react-native-vector-icons: ">7.0.0"
+  checksum: 1145cac33847eeefad37a556784541407fd263b4fb64739e300231c47a9abb1019ab96d028a1e163c188f34b7d20348f1f9afdef382ec8485580f7a04d1b824e
+  languageName: node
+  linkType: hard
+
+"@rneui/themed@npm:^4.0.0-rc.5":
+  version: 4.0.0-rc.5
+  resolution: "@rneui/themed@npm:4.0.0-rc.5"
+  peerDependencies:
+    "@rneui/base": 4.0.0-rc.5
+  checksum: a4ab8201d80c4894228b2b02dd7333303f1b6a53b2c65ad43a355d5ab54f63781c8c3cb8f78029802f2c204636a42870448bd595af6e23cc3251faf09583721e
+  languageName: node
+  linkType: hard
+
 "@sideway/address@npm:^4.1.3":
   version: 4.1.4
   resolution: "@sideway/address@npm:4.1.4"
@@ -3140,6 +3166,25 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 5e24d24622f34f8dfebc246e217a6491af04078f9c18c04f66b062532d12d89c13296e176f710b76d9340c35e9bbf1f673264238545394a33658a4785959efbf
+  languageName: node
+  linkType: hard
+
+"@types/react-native-vector-icons@npm:^6.4.10":
+  version: 6.4.11
+  resolution: "@types/react-native-vector-icons@npm:6.4.11"
+  dependencies:
+    "@types/react": "*"
+    "@types/react-native": "*"
+  checksum: f2ed7fbf255b2588785450804521863361225a425662a7e7bccf2ba678bab78bc3c060181662559b1ff24eb55211a8b4cc192c463157763f18f9bc20ea0bc5a1
+  languageName: node
+  linkType: hard
+
+"@types/react-native@npm:*":
+  version: 0.69.3
+  resolution: "@types/react-native@npm:0.69.3"
+  dependencies:
+    "@types/react": "*"
+  checksum: 7d5aa4b30385e232fed74bdebeba1c7ee73b4237ca5a310fee6f9b98432ed2f3a737f2755c528fd5b03485278e98bd0b152692df5e146cb2603827ab939841dc
   languageName: node
   linkType: hard
 
@@ -4278,7 +4323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-convert@npm:^1.9.0":
+"color-convert@npm:^1.9.0, color-convert@npm:^1.9.3":
   version: 1.9.3
   resolution: "color-convert@npm:1.9.3"
   dependencies:
@@ -4310,7 +4355,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-string@npm:^1.9.0":
+"color-string@npm:^1.6.0, color-string@npm:^1.9.0":
   version: 1.9.1
   resolution: "color-string@npm:1.9.1"
   dependencies:
@@ -4326,6 +4371,16 @@ __metadata:
   bin:
     color-support: bin.js
   checksum: 9b7356817670b9a13a26ca5af1c21615463b500783b739b7634a0c2047c16cef4b2865d7576875c31c3cddf9dd621fa19285e628f20198b233a5cfdda6d0793b
+  languageName: node
+  linkType: hard
+
+"color@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "color@npm:3.2.1"
+  dependencies:
+    color-convert: ^1.9.3
+    color-string: ^1.6.0
+  checksum: f81220e8b774d35865c2561be921f5652117638dcda7ca4029262046e37fc2444ac7bbfdd110cf1fd9c074a4ee5eda8f85944ffbdda26186b602dd9bb05f6400
   languageName: node
   linkType: hard
 
@@ -5936,6 +5991,15 @@ __metadata:
   dependencies:
     source-map: ^0.7.3
   checksum: b5f874eaa65b70d88df7a4ce3b20d73312bb0bc73410f1b63d708f02e1c532ae16975da84e23b977eab8592ac95d7e6fc0c4094c78604fd0a092ed886c62aa7a
+  languageName: node
+  linkType: hard
+
+"hoist-non-react-statics@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: ^16.7.0
+  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
   languageName: node
   linkType: hard
 
@@ -8226,6 +8290,8 @@ __metadata:
     "@react-navigation/bottom-tabs": ^6.3.2
     "@react-navigation/native": ^6.0.11
     "@react-navigation/native-stack": ^6.7.0
+    "@rneui/base": ^4.0.0-rc.5
+    "@rneui/themed": ^4.0.0-rc.5
     accordion-collapse-react-native: ^1.1.1
     babel-jest: ^26.6.3
     eslint: ^7.32.0
@@ -9190,7 +9256,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.0, react-is@npm:^16.13.1":
+"react-is@npm:^16.13.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
@@ -9267,6 +9333,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-ratings@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "react-native-ratings@npm:8.1.0"
+  dependencies:
+    lodash: ^4.17.15
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 34aa4e7ff09e537d5c8fb5b5bc98470c0723d7c0fff8954e39de371cdfa5ae3aa4af636ea44d508751f5dcaca6f80ee363fffd9c34a1bd8d8f7a9d8a23d82d15
+  languageName: node
+  linkType: hard
+
 "react-native-reanimated@npm:^2.9.1":
   version: 2.9.1
   resolution: "react-native-reanimated@npm:2.9.1"
@@ -9307,6 +9385,15 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: ebc3cded19d594aafa748d5ab6e237533f68dc33e28a584c99b8a6cac993585919f01413b94e9801f01af4a138810575f55ee25f90d7a77cb13c49d3252edb2a
+  languageName: node
+  linkType: hard
+
+"react-native-size-matters@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "react-native-size-matters@npm:0.4.0"
+  peerDependencies:
+    react-native: "*"
+  checksum: 8ad239c76410968cbf8b5a5ded49e8b08d10aa0c775fad0d074adda409efb571332ccdb24562cae8c8fc95b36af5755b280749b8bd093dc13eb8123a3645b03d
   languageName: node
   linkType: hard
 

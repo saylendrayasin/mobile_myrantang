@@ -1,85 +1,61 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {Avatar, Button} from '@rneui/themed';
 
-const Cta = () => {
+export default function Cta() {
   return (
-    <View style={{padding: 20}}>
-      <View style={styles.header}>
-        <View style={styles.headerVerticalLeft}>
-          <Text>Hello World</Text>
-          <TouchableOpacity style={styles.btnGetStarted}>
-            <Text>Get Started</Text>
-          </TouchableOpacity>
+    <View>
+      <View style={styles.card}>
+        <View style={styles.container}>
+          <Avatar
+            size={64}
+            rounded
+            source={{uri: 'https://randomuser.me/api/portraits/women/57.jpg'}}
+            style={styles.avatar}
+          />
+          <Text style={styles.TextCta}>
+            Lorem ipsum dolor sit amet consectetur adipisicing
+          </Text>
         </View>
-        <View style={styles.headerVerticalRight}>
-          <Image
-            style={styles.imgBanana}
-            source={require('../image/Banana.jpg')}
-          />
-          <Image
-            source={require('../image/Ellipse5.png')}
-            style={styles.imgElips1}
-          />
-          <Image
-            source={require('../image/Ellipse6.png')}
-            style={styles.imgElips2}
-          />
-        </View>
+        <Text style={styles.cardDetails}>Click for details</Text>
+        <Image source={require('../image/Ellipse5.png')} style={styles.bgvec} />
+        <Image
+          source={require('../image/Ellipse6.png')}
+          style={styles.bgvec2}
+        />
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  header: {
-    borderRadius: 20,
+  card: {
     backgroundColor: '#95CD41',
-    flex: 1,
-    flexDirection: 'row',
-    // paddingBottom: 40,
-    marginVertical: 8,
-    // marginHorizontal: 0,
+    margin: 10,
+    padding: 10,
+    borderRadius: 10,
+    height: 120,
+    justifyContent: 'space-between',
+    overflow: 'hidden',
   },
 
-  headerVerticalLeft: {
-    flex: 0.6,
-    padding: 18,
-  },
-
-  headerVerticalRight: {
-    flex: 0.4,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end',
-  },
-
-  btnGetStarted: {
-    backgroundColor: 'white',
-    marginTop: 10,
-    width: 120,
-    height: 35,
-    borderRadius: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  imgBanana: {
-    zIndex: 3,
+  bgvec: {
     position: 'absolute',
-    top: -35,
+    zIndex: 0,
+    top: 0,
     right: -10,
+    borderTopRightRadius: 10,
   },
-
-  imgElips1: {
-    zIndex: 2,
-    position: 'relative',
-  },
-
-  imgElips2: {
-    zIndex: 1,
+  bgvec2: {
     position: 'absolute',
-    top: 60,
-    right: 50,
+    zIndex: -1,
+    bottom: 0,
+    right: 0,
+  },
+  TextCta: {
+    width: 300,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
 });
-
-export default Cta;

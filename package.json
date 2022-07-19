@@ -14,6 +14,8 @@
     "@react-navigation/bottom-tabs": "^6.3.2",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
+    "@rneui/base": "^4.0.0-rc.5",
+    "@rneui/themed": "^4.0.0-rc.5",
     "accordion-collapse-react-native": "^1.1.1",
     "native-base": "^3.4.9",
     "react": "18.0.0",

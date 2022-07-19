@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   ImageBackground,
@@ -8,6 +8,8 @@ import {
   SafeAreaView,
   TextInput,
   ScrollView,
+  BackHandler,
+  Alert,
 } from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -17,6 +19,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from './Home';
 import Exam from './Exam1';
 import Regis from './Register';
+import Splash from './Splash';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -38,31 +41,41 @@ const NavScreen = () => {
   );
 };
 
-const MyStack = () => {
+export default function MyStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Login"
-          component={Login}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Home"
-          component={NavScreen}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Register"
-          component={Regis}
-        />
+      <Stack.Navigator
+        initialRouteName="Splash"
+        screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={NavScreen} />
+        <Stack.Screen name="Register" component={Regis} />
+        <Stack.Screen name="Splash" component={Splash} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 const Login = ({navigation}) => {
+  const backAction = () => {
+    Alert.alert('Perhatian!', 'Kamu yakin ingin keluar?', [
+      {
+        text: 'Cancel',
+        onPress: () => null,
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => BackHandler.exitApp()},
+    ]);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, []);
+
   const [username, changeUsername] = useState('');
   const [pass, changePass] = useState('');
   return (
@@ -233,5 +246,3 @@ const styles = StyleSheet.create({
     color: '#95CD41',
   },
 });
-
-export default MyStack;

@@ -1,28 +1,32 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-} from 'react-native';
-
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import Profile from '../components/Profile';
+import CardContainer from '../components/CardContainer';
 import Cta from '../components/Cta';
 
-const Home = () => {
+export default function App() {
   return (
-    <ScrollView style={styles.headers}>
-      <Cta />
-    </ScrollView>
+    <SafeAreaProvider>
+      <ScrollView bounces={true}>
+        <View>
+          <Profile />
+          <Text style={styles.TextMenu}>Menu</Text>
+          <CardContainer />
+          <Cta />
+          <Cta />
+        </View>
+      </ScrollView>
+    </SafeAreaProvider>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  headers: {
-    padding: 0,
-    flex: 1,
+  TextMenu: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#456711',
+    marginTop: 10,
+    marginLeft: 10,
   },
 });
-
-export default Home;
