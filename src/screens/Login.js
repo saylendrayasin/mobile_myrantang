@@ -10,7 +10,59 @@ import {
   ScrollView,
 } from 'react-native';
 
-const Login = () => {
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+import Home from './Home';
+import Exam from './Exam1';
+import Regis from './Register';
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const NavScreen = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        options={{headerShown: false}}
+        name="Homes"
+        component={Home}
+      />
+      <Tab.Screen
+        options={{headerShown: false}}
+        name="Exams"
+        component={Exam}
+      />
+    </Tab.Navigator>
+  );
+};
+
+const MyStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Login"
+          component={Login}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Home"
+          component={NavScreen}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Register"
+          component={Regis}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const Login = ({navigation}) => {
   const [username, changeUsername] = useState('');
   const [pass, changePass] = useState('');
   return (
@@ -59,12 +111,14 @@ const Login = () => {
         </View>
 
         <View style={styles.viewBtnGetStarted}>
-          <TouchableOpacity style={styles.btnGetStarted}>
+          <TouchableOpacity
+            style={styles.btnGetStarted}
+            onPress={() => navigation.navigate('Home')}>
             <Text style={styles.TxtGetStarted}>Login</Text>
           </TouchableOpacity>
           <View style={styles.viewSignUp}>
             <Text>Don't have an account? </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
               <Text style={styles.txtSignUp}>Sign Up</Text>
             </TouchableOpacity>
           </View>
@@ -180,4 +234,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default MyStack;

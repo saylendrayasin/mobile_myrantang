@@ -8234,7 +8234,9 @@ __metadata:
     native-base: ^3.4.9
     react: 18.0.0
     react-native: 0.69.1
+    react-native-date-picker: ^4.2.4
     react-native-datepicker: ^1.7.2
+    react-native-modal-datetime-picker: ^13.1.2
     react-native-reanimated: ^2.9.1
     react-native-safe-area-context: ^4.3.1
     react-native-screens: ^3.15.0
@@ -9207,6 +9209,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-date-picker@npm:^4.2.4":
+  version: 4.2.4
+  resolution: "react-native-date-picker@npm:4.2.4"
+  dependencies:
+    prop-types: ^15.8.1
+  checksum: 8eb21500d58b253beacd9330385b3df7c4a77fcf944315a4f75f0b043caa50d266d3bfa65c020f9d11706e0c653d9b5304b1f29dd9c1562fb47c3d9d2249853d
+  languageName: node
+  linkType: hard
+
 "react-native-datepicker@npm:^1.7.2":
   version: 1.7.2
   resolution: "react-native-datepicker@npm:1.7.2"
@@ -9241,6 +9252,18 @@ __metadata:
   peerDependencies:
     react-native: ">=0.48.4"
   checksum: 5eec2aedb886213dfed4c8428a443b565dce80ba9fcf5897171e4c8829d4dd64c5011ac004d93f29adfc83ad6f88c2838d1a5b45255dc4a49bd1c0a169245800
+  languageName: node
+  linkType: hard
+
+"react-native-modal-datetime-picker@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "react-native-modal-datetime-picker@npm:13.1.2"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    "@react-native-community/datetimepicker": ">=3.0.0"
+    react-native: ">=0.65.0"
+  checksum: 70a7875dbeb550f97aa26786262a434a5c88dfd048e642fa6e4a7e0b8411c8ff191463a5bb4a82bb18d603cc3b2ef60891bfcaa3144b9e0a40cd756bf662b4a1
   languageName: node
   linkType: hard
 

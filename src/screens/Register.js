@@ -8,14 +8,34 @@ import {
   SafeAreaView,
   TextInput,
   ScrollView,
+  Button,
 } from 'react-native';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
-
-const Register = () => {
+const Register = ({navigation}) => {
   const [username, changeUsername] = useState('');
   const [email, changeEmail] = useState('');
   const [pass, changePass] = useState('');
+  const [date, setDate] = useState('');
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = date => {
+    setDate(date);
+    hideDatePicker();
+  };
+
+  const getDate = () => {
+    let tempDate = date.toString().split(' ');
+    return date !== '' ? `${tempDate[2]} ${tempDate[1]} ${tempDate[3]}` : '';
+  };
   return (
     <View style={styles.headers}>
       <View style={styles.topBack}>
@@ -41,53 +61,49 @@ const Register = () => {
         </View>
 
         <View style={styles.viewTextInput}>
-          <Text style={styles.txtLogin}>Register</Text>
-          <SafeAreaView style={{flex: 1, marginTop: 10}}>
+          <Text style={styles.txtRegis}>Register</Text>
+          <SafeAreaView style={styles.sav}>
             <TextInput
               value={username}
               onChangeText={changeUsername}
-              style={{
-                flex: 1,
-                borderWidth: 1,
-                borderColor: '#95CD41',
-                borderRadius: 10,
-                backgroundColor: '#F6FFE8',
-                padding: 10,
-              }}
               placeholder="Username"
             />
           </SafeAreaView>
 
-          <SafeAreaView style={{flex: 1, marginTop: 10}}>
+          <SafeAreaView style={styles.sav}>
             <TextInput
               value={email}
               onChangeText={changeEmail}
-              style={{
-                flex: 1,
-                borderWidth: 1,
-                borderColor: '#95CD41',
-                borderRadius: 10,
-                backgroundColor: '#F6FFE8',
-                padding: 10,
-              }}
               placeholder="Email"
             />
           </SafeAreaView>
-          <SafeAreaView style={{flex: 1, marginTop: 10}}>
+
+          <SafeAreaView style={styles.sav}>
             <TextInput
               value={pass}
               onChangeText={changePass}
-              style={{
-                flex: 1,
-                borderWidth: 1,
-                borderColor: '#95CD41',
-                borderRadius: 10,
-                backgroundColor: '#F6FFE8',
-                padding: 10,
-              }}
               placeholder="Password"
               secureTextEntry={true}
             />
+          </SafeAreaView>
+
+          <SafeAreaView style={styles.sav}>
+            <TextInput
+              value={getDate()}
+              placeholder="Date"
+              style={{flex: 0.8}}
+            />
+            <TouchableOpacity
+              onPress={showDatePicker}
+              style={{justifyContent: 'center', flex: 0.2}}>
+              <Text>Set Date</Text>
+              <DateTimePickerModal
+                isVisible={isDatePickerVisible}
+                mode="date"
+                onConfirm={handleConfirm}
+                onCancel={hideDatePicker}
+              />
+            </TouchableOpacity>
           </SafeAreaView>
         </View>
 
@@ -96,9 +112,9 @@ const Register = () => {
             <Text style={styles.TxtGetStarted}>Get Started</Text>
           </TouchableOpacity>
           <View style={styles.viewSignUp}>
-            <Text>Don't have an account? </Text>
-            <TouchableOpacity>
-              <Text style={styles.txtSignUp}>Sign Up</Text>
+            <Text>Have an account? </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <Text style={styles.txtSignUp}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -169,11 +185,21 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
   },
-  txtLogin: {
+  txtRegis: {
     fontSize: 22,
     fontWeight: 'bold',
     color: '#95CD41',
   },
+  sav: {
+    flex: 1,
+    marginTop: 10,
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#95CD41',
+    borderRadius: 10,
+    backgroundColor: '#F6FFE8',
+  },
+  textInputDate: {},
   btnGetStarted: {
     width: 250,
     height: 35,
