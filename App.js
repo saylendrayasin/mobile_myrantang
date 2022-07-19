@@ -12,6 +12,7 @@ import Login from './src/screens/Login';
 import Regis from './src/screens/Register';
 import Po from './src/screens/on_board/pageone';
 import Pf from './src/screens/on_board/pagefour';
+import Pt from './src/screens/on_board/pagetree';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,7 +27,7 @@ function App() {
     // </NavigationContainer>
 
     <View style={{flex: 1}}>
-      <Pf />
+      <Pt />
     </View>
   );
 }
