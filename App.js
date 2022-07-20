@@ -13,6 +13,7 @@ import Regis from './src/screens/Register';
 import Po from './src/screens/on_board/pageone';
 import Pf from './src/screens/on_board/pagefour';
 import Pt from './src/screens/on_board/pagetree';
+import Ptw from './src/screens/on_board/pagetwo';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -27,7 +28,7 @@ function App() {
     // </NavigationContainer>
 
     <View style={{flex: 1}}>
-      <Pt />
+      <Ptw />
     </View>
   );
 }

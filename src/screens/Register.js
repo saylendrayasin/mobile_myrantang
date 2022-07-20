@@ -9,6 +9,7 @@ import {
   TextInput,
   ScrollView,
   Button,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
@@ -92,7 +93,9 @@ const Register = ({navigation}) => {
               value={getDate()}
               placeholder="Date"
               style={{flex: 0.8}}
+              keyboardType=""
             />
+
             <TouchableOpacity
               onPress={showDatePicker}
               style={{justifyContent: 'center', flex: 0.2}}>

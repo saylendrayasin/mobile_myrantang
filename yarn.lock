@@ -8307,6 +8307,7 @@ __metadata:
     react-native-safe-area-context: ^4.3.1
     react-native-screens: ^3.15.0
     react-native-snap-carousel: 4.0.0-beta.6
+    react-native-super-grid: ^4.4.2
     react-native-vector-icons: ^9.2.0
     react-test-renderer: 18.0.0
   languageName: unknown
@@ -9159,7 +9160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -9407,6 +9408,18 @@ __metadata:
     react: ">=16.0.0"
     react-native: ">=0.58.0"
   checksum: 32ab752009b16e8d18bd7dc7defb7e454881d2ed979dd9a00cbfb92a03317752067bab7dccc6cb7b42e3a61657f29e3e12ea1e12ac7661e5539c7be037a7cfe7
+  languageName: node
+  linkType: hard
+
+"react-native-super-grid@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "react-native-super-grid@npm:4.4.2"
+  dependencies:
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-native: ">=0.59.0"
+  checksum: 48d7c21b9b69f476d0417be18904e650e877906e121c9b51eee048f3de37ce67d8d00b9cfe4405532040eb98e2995d4304018cf0ba614eaf8ec361a5c1268a0e
   languageName: node
   linkType: hard
 

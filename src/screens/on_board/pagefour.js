@@ -34,7 +34,7 @@ export default function PageFour() {
         />
         <TextInput
           value={addres}
-          onChangeText={setAddres}
+          onChangeText={addres => setAddres(addres)}
           style={styles.textinputAddress}
           placeholder="Address"
         />
