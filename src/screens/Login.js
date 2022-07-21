@@ -11,71 +11,29 @@ import {
   BackHandler,
   Alert,
 } from 'react-native';
-
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
-import Home from './Home';
-import Exam from './Exam1';
-import Regis from './Register';
-import Splash from './Splash';
-
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-
-const NavScreen = () => {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen
-        options={{headerShown: false}}
-        name="Homes"
-        component={Home}
-      />
-      <Tab.Screen
-        options={{headerShown: false}}
-        name="Exams"
-        component={Exam}
-      />
-    </Tab.Navigator>
-  );
-};
-
-export default function MyStack() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Splash"
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={NavScreen} />
-        <Stack.Screen name="Register" component={Regis} />
-        <Stack.Screen name="Splash" component={Splash} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Login = ({navigation}) => {
-  const backAction = () => {
-    Alert.alert('Perhatian!', 'Kamu yakin ingin keluar?', [
-      {
-        text: 'Cancel',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => BackHandler.exitApp()},
-    ]);
-    return true;
-  };
-
   useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', backAction);
+    const backAction = () => {
+      Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+        {
+          text: 'Cancel',
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {text: 'YES', onPress: () => BackHandler.exitApp()},
+      ]);
+      return true;
+    };
 
-    return () =>
-      BackHandler.removeEventListener('hardwareBackPress', backAction);
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
   }, []);
-
   const [username, changeUsername] = useState('');
   const [pass, changePass] = useState('');
   return (
@@ -105,6 +63,12 @@ const Login = ({navigation}) => {
         <View style={styles.viewTextInput}>
           <Text style={styles.txtLogin}>Login</Text>
           <SafeAreaView style={styles.sav}>
+            <Icon
+              name="user-ninja"
+              style={styles.iconUser}
+              size={28}
+              color="#95CD41"
+            />
             <TextInput
               value={username}
               onChangeText={changeUsername}
@@ -113,6 +77,12 @@ const Login = ({navigation}) => {
             />
           </SafeAreaView>
           <SafeAreaView style={styles.sav}>
+            <Icon
+              name="lock"
+              style={styles.iconPass}
+              size={28}
+              color="#95CD41"
+            />
             <TextInput
               value={pass}
               onChangeText={changePass}
@@ -140,6 +110,8 @@ const Login = ({navigation}) => {
     </View>
   );
 };
+
+export default Login;
 
 const styles = StyleSheet.create({
   headers: {
@@ -209,22 +181,23 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#95CD41',
   },
-  sav: {flex: 1, marginTop: 10},
-  textinputEmail: {
+  sav: {
+    alignItems: 'center',
     flex: 1,
+    marginTop: 10,
+    flexDirection: 'row',
     borderWidth: 1,
     borderColor: '#95CD41',
     borderRadius: 10,
     backgroundColor: '#F6FFE8',
-    padding: 10,
   },
+  iconUser: {flex: 0.1, marginLeft: 10},
+  textinputEmail: {
+    flex: 0.9,
+  },
+  iconPass: {flex: 0.1, marginLeft: 10},
   textinputPass: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#95CD41',
-    borderRadius: 10,
-    backgroundColor: '#F6FFE8',
-    padding: 10,
+    flex: 0.9,
   },
   btnGetStarted: {
     width: 250,

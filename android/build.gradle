@@ -8,6 +8,9 @@ buildscript {
         minSdkVersion = 21
         compileSdkVersion = 31
         targetSdkVersion = 31
+        supportLibVersion = "28.0.3"
+        playServicesVersion = "18.0.0"
+        androidMapsUtilsVersion = "2.3.0"
 
         if (System.properties['os.arch'] == "aarch64") {
             // For M1 Users we need to use the NDK 24 which added support for aarch64

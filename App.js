@@ -14,6 +14,8 @@ import Po from './src/screens/on_board/pageone';
 import Pf from './src/screens/on_board/pagefour';
 import Pt from './src/screens/on_board/pagetree';
 import Ptw from './src/screens/on_board/pagetwo';
+import Route from './src/screens/Route';
+import Explore from './src/screens/Explore';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,7 +30,7 @@ function App() {
     // </NavigationContainer>
 
     <View style={{flex: 1}}>
-      <Ptw />
+      <Route />
     </View>
   );
 }

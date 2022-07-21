@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   ImageBackground,
@@ -9,9 +9,12 @@ import {
   TextInput,
   ScrollView,
   Button,
+  BackHandler,
   TouchableWithoutFeedback,
 } from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icons from 'react-native-vector-icons/Zocial';
 
 const Register = ({navigation}) => {
   const [username, changeUsername] = useState('');
@@ -19,6 +22,20 @@ const Register = ({navigation}) => {
   const [pass, changePass] = useState('');
   const [date, setDate] = useState('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  useEffect(() => {
+    const backAction = () => {
+      navigation.goBack();
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -64,6 +81,13 @@ const Register = ({navigation}) => {
         <View style={styles.viewTextInput}>
           <Text style={styles.txtRegis}>Register</Text>
           <SafeAreaView style={styles.sav}>
+            <Icon
+              name="user-ninja"
+              style={styles.Icons}
+              size={28}
+              color="#95CD41"
+            />
+
             <TextInput
               value={username}
               onChangeText={changeUsername}
@@ -72,6 +96,13 @@ const Register = ({navigation}) => {
           </SafeAreaView>
 
           <SafeAreaView style={styles.sav}>
+            <Icons
+              name="email"
+              style={styles.Icons}
+              size={27}
+              color="#95CD41"
+            />
+
             <TextInput
               value={email}
               onChangeText={changeEmail}
@@ -80,6 +111,8 @@ const Register = ({navigation}) => {
           </SafeAreaView>
 
           <SafeAreaView style={styles.sav}>
+            <Icon name="lock" style={styles.Icons} size={28} color="#95CD41" />
+
             <TextInput
               value={pass}
               onChangeText={changePass}
@@ -89,16 +122,23 @@ const Register = ({navigation}) => {
           </SafeAreaView>
 
           <SafeAreaView style={styles.sav}>
+            <Icon
+              name="calendar-alt"
+              style={styles.Icons}
+              size={28}
+              color="#95CD41"
+            />
+
             <TextInput
               value={getDate()}
               placeholder="Date"
-              style={{flex: 0.8}}
+              style={{flex: 0.9}}
               keyboardType=""
             />
 
             <TouchableOpacity
               onPress={showDatePicker}
-              style={{justifyContent: 'center', flex: 0.2}}>
+              style={{justifyContent: 'center', flex: 0.2, marginRight: 10}}>
               <Text>Set Date</Text>
               <DateTimePickerModal
                 isVisible={isDatePickerVisible}
@@ -195,6 +235,7 @@ const styles = StyleSheet.create({
   },
   sav: {
     flex: 1,
+    alignItems: 'center',
     marginTop: 10,
     flexDirection: 'row',
     borderWidth: 1,
@@ -202,6 +243,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#F6FFE8',
   },
+  Icons: {flex: 0.1, marginLeft: 10},
   textInputDate: {},
   btnGetStarted: {
     width: 250,
