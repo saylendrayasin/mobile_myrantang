@@ -14,7 +14,9 @@ import Po from './src/screens/on_board/pageone';
 import Pf from './src/screens/on_board/pagefour';
 import Pt from './src/screens/on_board/pagetree';
 import Ptw from './src/screens/on_board/pagetwo';
+import Pfv from './src/screens/on_board/pagefive';
 import Route from './src/screens/Route';
+import Menu from './src/screens/Menu';
 import Explore from './src/screens/Explore';
 
 const Stack = createNativeStackNavigator();

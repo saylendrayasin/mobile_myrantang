@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, BackHandler, Alert} from 'react-native';
 import Icons from 'react-native-vector-icons/FontAwesome5';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -12,7 +13,13 @@ import Exam from './Exam1';
 import Login from './Login';
 import Regis from './Register';
 import Splash from './Splash';
+import PageOne from './on_board/pageone';
+import PageTwo from './on_board/pagetwo';
+import PageTree from './on_board/pagetree';
+import PageFour from './on_board/pagefour';
+import PageFive from './on_board/pagefive';
 import {Icon} from '@rneui/base';
+import Menu from './Menu';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,6 +27,28 @@ const Tab = createBottomTabNavigator();
 const NavScreen = () => {
   const color = '#808080';
   const size = 90;
+
+  // useEffect(() => {
+  //   const backAction = () => {
+  //     Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+  //       {
+  //         text: 'Cancel',
+  //         onPress: () => null,
+  //         style: 'cancel',
+  //       },
+  //       {text: 'YES', onPress: () => BackHandler.exitApp()},
+  //     ]);
+  //     return true;
+  //   };
+
+  //   const backHandler = BackHandler.addEventListener(
+  //     'hardwareBackPress',
+  //     backAction,
+  //   );
+
+  //   return () => backHandler.remove();
+  // }, []);
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -45,7 +74,7 @@ const NavScreen = () => {
           tabBarLabel: 'Home',
           // tabBarLabelStyle: {fontSize: 30},
           tabBarIcon: ({color}) => (
-            <Icons
+            <MaterialIcons
               name="home"
               color={color}
               size={30}
@@ -56,12 +85,12 @@ const NavScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Exams"
-        component={Exam}
+        name="Menu"
+        component={Menu}
         options={{
-          tabBarLabel: 'Kontol',
+          tabBarLabel: 'Menu',
           tabBarIcon: ({color}) => (
-            <Icons name="user-ninja" color={color} size={30} />
+            <MaterialIcons name="restaurant-menu" color={color} size={30} />
           ),
           tabBarLabelStyle: {fontSize: 14},
         }}
@@ -72,7 +101,7 @@ const NavScreen = () => {
         options={{
           tabBarLabel: 'Location',
           tabBarIcon: ({color}) => (
-            <Icons name="map-marker-alt" color={color} size={30} />
+            <MaterialIcons name="location-on" color={color} size={30} />
           ),
           tabBarLabelStyle: {fontSize: 14},
         }}
@@ -87,10 +116,15 @@ export default function Route() {
       <Stack.Navigator
         initialRouteName="Splash"
         screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={NavScreen} />
-        <Stack.Screen name="Register" component={Regis} />
         <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Regis} />
+        <Stack.Screen name="PageOne" component={PageOne} />
+        <Stack.Screen name="PageTwo" component={PageTwo} />
+        <Stack.Screen name="PageTree" component={PageTree} />
+        <Stack.Screen name="PageFour" component={PageFour} />
+        <Stack.Screen name="PageFive" component={PageFive} />
+        <Stack.Screen name="Home" component={NavScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

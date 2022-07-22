@@ -67,24 +67,22 @@ const Register = ({navigation}) => {
           </View>
           <View style={styles.viewTxt}>
             <Text style={styles.txtFirst}>Selamat Datang...</Text>
-            <Text style={styles.txtFirst}>Selamat Belanja</Text>
           </View>
         </ImageBackground>
       </View>
 
       <ScrollView style={styles.botBack}>
         <View style={styles.viewTxtWelcome}>
-          <Text style={styles.txtSecond}>Welcome</Text>
-          <Text style={styles.txtSecond}>Back</Text>
+          <Text style={styles.txtSecond}>New Account</Text>
         </View>
 
         <View style={styles.viewTextInput}>
           <Text style={styles.txtRegis}>Register</Text>
           <SafeAreaView style={styles.sav}>
             <Icon
-              name="user-ninja"
+              name="user-alt"
               style={styles.Icons}
-              size={28}
+              size={27}
               color="#95CD41"
             />
 
@@ -111,7 +109,7 @@ const Register = ({navigation}) => {
           </SafeAreaView>
 
           <SafeAreaView style={styles.sav}>
-            <Icon name="lock" style={styles.Icons} size={28} color="#95CD41" />
+            <Icon name="lock" style={styles.Icons} size={27} color="#95CD41" />
 
             <TextInput
               value={pass}
@@ -131,7 +129,7 @@ const Register = ({navigation}) => {
 
             <TextInput
               value={getDate()}
-              placeholder="Date"
+              placeholder="Birth Date"
               style={{flex: 0.9}}
               keyboardType=""
             />
@@ -151,8 +149,10 @@ const Register = ({navigation}) => {
         </View>
 
         <View style={styles.viewBtnGetStarted}>
-          <TouchableOpacity style={styles.btnGetStarted}>
-            <Text style={styles.TxtGetStarted}>Get Started</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('PageOne')}
+            style={styles.btnGetStarted}>
+            <Text style={styles.TxtGetStarted}>Create Account</Text>
           </TouchableOpacity>
           <View style={styles.viewSignUp}>
             <Text>Have an account? </Text>
@@ -218,6 +218,7 @@ const styles = StyleSheet.create({
     flex: 0.2,
   },
   viewTextInput: {
+    marginTop: 10,
     flex: 0.6,
     justifyContent: 'flex-start',
   },

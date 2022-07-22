@@ -49,7 +49,6 @@ const Login = ({navigation}) => {
           </View>
           <View style={styles.viewTxt}>
             <Text style={styles.txtFirst}>Selamat Datang...</Text>
-            <Text style={styles.txtFirst}>Selamat Belanja</Text>
           </View>
         </ImageBackground>
       </View>
@@ -64,9 +63,9 @@ const Login = ({navigation}) => {
           <Text style={styles.txtLogin}>Login</Text>
           <SafeAreaView style={styles.sav}>
             <Icon
-              name="user-ninja"
+              name="user-alt"
               style={styles.iconUser}
-              size={28}
+              size={26}
               color="#95CD41"
             />
             <TextInput
@@ -80,7 +79,7 @@ const Login = ({navigation}) => {
             <Icon
               name="lock"
               style={styles.iconPass}
-              size={28}
+              size={27}
               color="#95CD41"
             />
             <TextInput

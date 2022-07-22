@@ -19,38 +19,77 @@ const CARD_WIDTH = Dimensions.get('window').width;
 const CARD_HEIGHT = Dimensions.get('window').height;
 
 export default function Explore() {
-  const [alatitude, setLatitude] = useState('37.4001');
-  const [alongitude, setLongitude] = useState('-120.123');
+  const [alatitude, setLatitude] = useState('10');
+  const [alongitude, setLongitude] = useState('10');
+  // const [err, setErr] = null;
+
+  // function getlocations() {
+  //   async () => {
+  //     try {
+  //       const granted = await PermissionsAndroid.request(
+  //         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+  //         {
+  //           title: 'Cool Photo App Camera Permission',
+  //           message:
+  //             'Cool Photo App needs access to your camera ' +
+  //             'so you can take awesome pictures.',
+  //           buttonNeutral: 'Ask Me Later',
+  //           buttonNegative: 'Cancel',
+  //           buttonPositive: 'OK',
+  //         },
+  //       );
+  //       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+  //         console.log('You can use the camera');
+
+  //         geolocation.getCurrentPosition(position => {
+  //           alert(JSON.stringify(position));
+  //           setLatitude(JSON.stringify(position.coords.latitude));
+  //           setLongitude(JSON.stringify(position.coords.longitude));
+  //           // setLatitude({alatitude: position.coords.latitude});
+  //           // setLongitude({alongitude: position.coords.longitude});
+  //         });
+  //       } else {
+  //         console.log('Camera permission denied');
+  //       }
+  //     } catch (err) {
+  //       console.warn(err);
+  //     }
+  //   };
+  // }
 
   useEffect(() => {
-    (async () => {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            title: 'Cool Photo App Camera Permission',
-            message:
-              'Cool Photo App needs access to your camera ' +
-              'so you can take awesome pictures.',
-            buttonNeutral: 'Ask Me Later',
-            buttonNegative: 'Cancel',
-            buttonPositive: 'OK',
-          },
-        );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          console.log('You can use the camera');
+    // getlocations();
 
-          geolocation.getCurrentPosition(position => {
-            alert(JSON.stringify(position));
-            setLatitude(JSON.stringify(position.coords.latitude));
-            setLongitude(JSON.stringify(position.coords.longitude));
-          });
-        } else {
-          console.log('Camera permission denied');
-        }
-      } catch (err) {
-        console.warn(err);
+    (async () => {
+      // try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: 'Cool Photo App Camera Permission',
+          message:
+            'Cool Photo App needs access to your camera ' +
+            'so you can take awesome pictures.',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log('You can use the camera');
+
+        geolocation.getCurrentPosition(position => {
+          alert(JSON.stringify(position));
+          setLatitude(JSON.stringify(position.coords.latitude));
+          setLongitude(JSON.stringify(position.coords.longitude));
+          // setLatitude({alatitude: position.coords.latitude});
+          // setLongitude({alongitude: position.coords.longitude});
+        });
+      } else {
+        console.log('Camera permission denied');
       }
+      // } catch (err) {
+      // console.warn(err);
+      // }
     })();
   }, []);
   return (
@@ -62,10 +101,14 @@ export default function Explore() {
         onUserLocationChange={e => {
           setLatitude(JSON.stringify(e.nativeEvent.coordinate.latitude));
           setLongitude(JSON.stringify(e.nativeEvent.coordinate.longitude));
+          //   // setLatitude(e.nativeEvent.coordinate.latitude);
+          //   // setLongitude(e.nativeEvent.coordinate.longitude);
         }}
         region={{
           latitude: parseFloat(alatitude),
           longitude: parseFloat(alongitude),
+          // latitude: alatitude,
+          // longitude: alongitude,
           latitudeDelta: 0.005,
           longitudeDelta: 0.0005,
         }}>
@@ -73,6 +116,8 @@ export default function Explore() {
           coordinate={{
             latitude: parseFloat(alatitude),
             longitude: parseFloat(alongitude),
+            // latitude: alatitude,
+            // longitude: alongitude,
           }}
           pinColor="blue"
           draggable={true}
@@ -94,6 +139,8 @@ export default function Explore() {
           center={{
             latitude: parseFloat(alatitude),
             longitude: parseFloat(alongitude),
+            // latitude: alatitude,
+            // longitude: alongitude,
           }}
           radius={100}
         />

@@ -21,11 +21,11 @@ function ItemCards(props) {
         </View>
         <Text style={styles.cardDetails}>Click for details</Text>
         <Image
-          source={require('../../image/cardImg.png')}
+          source={require('../image/cardImg.png')}
           style={styles.cardImg}
         />
         <Image
-          source={require('../../image/Ellipse6.png')}
+          source={require('../image/Ellipse6.png')}
           style={styles.cardBg}
         />
       </View>
@@ -33,7 +33,7 @@ function ItemCards(props) {
   );
 }
 
-export default function PageTree({navigation}) {
+export default function Menu({navigation}) {
   const [IsSelected, setIsSelected] = useState(true);
   const createTwoButtonAlert = () =>
     Alert.alert(
@@ -74,42 +74,40 @@ export default function PageTree({navigation}) {
             <ItemCards mealTime="wkwkwk" />
           </TouchableOpacity>
         </View>
+        <View style={styles.content}>
+          <TouchableOpacity>
+            <ItemCards mealTime="Anjim" />
+          </TouchableOpacity>
+        </View>
       </ScrollView>
-      <View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 25,
-            zIndex: 3,
-            left: 25,
-          }}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.btnBack}
-            activeOpacity={0.8}>
-            <AntDesign name="left" style={{fontSize: 25, color: '#fff'}} />
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 25,
-            zIndex: 3,
-            right: 25,
-          }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('PageFour')}
-            style={styles.btnNext}
-            activeOpacity={0.8}>
-            <AntDesign name="right" style={{fontSize: 25, color: '#fff'}} />
-          </TouchableOpacity>
-        </View>
-      </View>
+      {/* <View
+        style={{
+          position: 'absolute',
+          top: 20,
+          zIndex: 3,
+          right: 0,
+        }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Payment')}
+          style={styles.btnNext}
+          activeOpacity={0.8}>
+          <AntDesign name="right" style={{fontSize: 25, color: '#fff'}} />
+        </TouchableOpacity>
+      </View> */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  // btnNext: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   width: 60,
+  //   height: 60,
+  //   borderRadius: 30,
+  //   backgroundColor: '#456711',
+  // },
   cards: {
     backgroundColor: '#95CD41',
     marginTop: 10,
@@ -143,24 +141,6 @@ const styles = StyleSheet.create({
     bottom: -20,
     right: -20,
     zIndex: -1,
-  },
-  btnBack: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#929292',
-  },
-  btnNext: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#456711',
   },
   content: {
     // flex: 1
