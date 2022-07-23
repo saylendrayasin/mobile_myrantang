@@ -1260,6 +1260,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@egjs/hammerjs@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "@egjs/hammerjs@npm:2.0.17"
+  dependencies:
+    "@types/hammerjs": ^2.0.36
+  checksum: 8945137cec5837edd70af3f2e0ea621543eb0aa3b667e6269ec6485350f4d120c2434b37c7c30b1cf42a65275dd61c1f24626749c616696d3956ac0c008c4766
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^0.4.3":
   version: 0.4.3
   resolution: "@eslint/eslintrc@npm:0.4.3"
@@ -2911,6 +2920,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-masked-view/masked-view@npm:^0.2.7":
+  version: 0.2.7
+  resolution: "@react-native-masked-view/masked-view@npm:0.2.7"
+  peerDependencies:
+    react: ">=16"
+    react-native: ">=0.57"
+  checksum: 65fe8c86c5b0f7519fc1ce6748818ecddb56d9b6e0268a113b409b589cbb46fa632790231e3620f64061bc7ce63bb871c2803a6fa6261cfb3c8655348a595e9b
+  languageName: node
+  linkType: hard
+
 "@react-native/assets@npm:1.0.0":
   version: 1.0.0
   resolution: "@react-native/assets@npm:1.0.0"
@@ -3013,6 +3032,24 @@ __metadata:
   dependencies:
     nanoid: ^3.1.23
   checksum: 6889b4eca3ac99a6c0c047344a55b34a203264e60cdfbd9a7efaf7728dc90bec18a05ed5c4169146fb804909ddb782e014ccfd9a51a667b2e41ead23b1be0b68
+  languageName: node
+  linkType: hard
+
+"@react-navigation/stack@npm:^6.2.2":
+  version: 6.2.2
+  resolution: "@react-navigation/stack@npm:6.2.2"
+  dependencies:
+    "@react-navigation/elements": ^1.3.4
+    color: ^4.2.3
+    warn-once: ^0.1.0
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: ">= 1.0.0"
+    react-native-safe-area-context: ">= 3.0.0"
+    react-native-screens: ">= 3.0.0"
+  checksum: 27cb45e1493759be09c3b1e7ff0d6a7c6847d021d1ce48a1ccbf375d50145cde8fd7546a63c8136026c2d159d48bcdf27f1de7c8017354f16f411a091220c129
   languageName: node
   linkType: hard
 
@@ -3737,6 +3774,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: d076bb61f45d0fc42dee496ef8b1c2f8742e15d5e47e90e20d0243386e426c04d4efd408a48875ab432f7960b4ce3414db20ed0fbbfc7bcc89d84e574f6e045a
+  languageName: node
+  linkType: hard
+
+"@types/hammerjs@npm:^2.0.36":
+  version: 2.0.41
+  resolution: "@types/hammerjs@npm:2.0.41"
+  checksum: d16fbd688fc9b18cc270abe8dea8d4c50ef7bd8375e593d92c233d299387933a6b003c8db69819344833052458bc5f9ef1b472001277a49f095928d184356006
   languageName: node
   linkType: hard
 
@@ -9591,7 +9635,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.3.2":
+"hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -12877,9 +12921,11 @@ __metadata:
     "@react-native-community/datetimepicker": ^6.2.0
     "@react-native-community/eslint-config": ^2.0.0
     "@react-native-community/geolocation": ^2.1.0
+    "@react-native-masked-view/masked-view": ^0.2.7
     "@react-navigation/bottom-tabs": ^6.3.2
     "@react-navigation/native": ^6.0.11
     "@react-navigation/native-stack": ^6.7.0
+    "@react-navigation/stack": ^6.2.2
     "@rneui/base": ^4.0.0-rc.5
     "@rneui/themed": ^4.0.0-rc.5
     accordion-collapse-react-native: ^1.1.1
@@ -12894,7 +12940,9 @@ __metadata:
     react-native: 0.69.1
     react-native-date-picker: ^4.2.4
     react-native-datepicker: ^1.7.2
+    react-native-gesture-handler: ^2.5.0
     react-native-maps: ^1.1.0
+    react-native-modal: ^13.0.1
     react-native-modal-datetime-picker: ^13.1.2
     react-native-reanimated: ^2.9.1
     react-native-safe-area-context: ^4.3.1
@@ -15227,6 +15275,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-animatable@npm:1.3.3":
+  version: 1.3.3
+  resolution: "react-native-animatable@npm:1.3.3"
+  dependencies:
+    prop-types: ^15.7.2
+  checksum: eb35821de36ae4eb00f97d99fc22ed79bd017248092ff1299f9d46a7ab946de16d2e6d6bfbf4cab5ef77d0d3bf47684aec761a7670ec7d36aae8d77ab8ddd171
+  languageName: node
+  linkType: hard
+
 "react-native-codegen@npm:^0.69.1":
   version: 0.69.1
   resolution: "react-native-codegen@npm:0.69.1"
@@ -15254,6 +15311,22 @@ __metadata:
   dependencies:
     moment: ^2.22.0
   checksum: 41b3a6b28b8b5d618e6d487b7268b233f9e3815d805ac90e3c0e5b1640ec3555e155f09b3833795d4f900bf5b9cf6fa4759f155c39130773864fbdf1413247d8
+  languageName: node
+  linkType: hard
+
+"react-native-gesture-handler@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "react-native-gesture-handler@npm:2.5.0"
+  dependencies:
+    "@egjs/hammerjs": ^2.0.17
+    hoist-non-react-statics: ^3.3.0
+    invariant: ^2.2.4
+    lodash: ^4.17.21
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: d086f14da7f45c24c675402a4e9dec0a5c32e7279110f1af0c178cae0b6ca40dea99f878120d7034ce9c84f01465f68d0f21dcc9c3869fd527ebd18255b73432
   languageName: node
   linkType: hard
 
@@ -15310,6 +15383,19 @@ __metadata:
     "@react-native-community/datetimepicker": ">=3.0.0"
     react-native: ">=0.65.0"
   checksum: 70a7875dbeb550f97aa26786262a434a5c88dfd048e642fa6e4a7e0b8411c8ff191463a5bb4a82bb18d603cc3b2ef60891bfcaa3144b9e0a40cd756bf662b4a1
+  languageName: node
+  linkType: hard
+
+"react-native-modal@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "react-native-modal@npm:13.0.1"
+  dependencies:
+    prop-types: ^15.6.2
+    react-native-animatable: 1.3.3
+  peerDependencies:
+    react: "*"
+    react-native: ">=0.65.0"
+  checksum: 15985fd6aaae7a2134ec1003c63abd384f4a17beabd0a80b74033c98eccee29161aa07150f479373fb43106cfb33b5837b7a4f1d2b721ff03b3727490c830a07
   languageName: node
   linkType: hard
 

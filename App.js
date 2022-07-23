@@ -32,7 +32,7 @@ function App() {
     // </NavigationContainer>
 
     <View style={{flex: 1}}>
-      <Route />
+      <Pt />
     </View>
   );
 }

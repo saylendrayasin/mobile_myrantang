@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, BackHandler, Alert} from 'react-native';
+import {StyleSheet, BackHandler, Alert, Easing, StatusBar} from 'react-native';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack';
 
 import Home from './Home';
 import Explore from './Explore';
@@ -21,7 +25,7 @@ import PageFive from './on_board/pagefive';
 import {Icon} from '@rneui/base';
 import Menu from './Menu';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const NavScreen = () => {
@@ -113,9 +117,15 @@ const NavScreen = () => {
 export default function Route() {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor="#fff" barStyle={'dark-content'} />
       <Stack.Navigator
         initialRouteName="Splash"
-        screenOptions={{headerShown: false}}>
+        screenOptions={{
+          headerShown: false,
+          // gestureEnabled: true,
+          // gestureDirection: 'horizontal',
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Regis} />

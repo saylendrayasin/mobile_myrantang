@@ -8,13 +8,25 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
+import Modal from 'react-native-modal';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 function ItemCards(props) {
+  const [Color, setColor] = useState(props.color);
+
+  const changeColor = () => {
+    if (Color == '#78CE34') {
+      setColor('#ECECEC');
+    } else {
+      setColor('#78CE34');
+    }
+  };
+
   return (
     <View style={styles.cardContainer}>
-      <View style={styles.cards}>
+      <View style={[styles.cards, {backgroundColor: Color}]}>
         <View>
           <Text style={styles.cardTitle}>Lorem Ipsum</Text>
           <Text style={styles.cardMealTime}>{props.mealTime}</Text>
@@ -34,23 +46,20 @@ function ItemCards(props) {
 }
 
 export default function PageTree({navigation}) {
-  const [IsSelected, setIsSelected] = useState(true);
-  const createTwoButtonAlert = () =>
-    Alert.alert(
-      'Warning',
-      'Anda memiliki riwayat penyakit diabetes. menu ini megandung bahan makanan yang dapat memperburuk kondisi anda',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {
-          text: 'I Understand',
-          onPress: () => console.log('I Understand Pressed'),
-        },
-      ],
-    );
+  const [IsSelected, setIsSelected] = useState('#78CE34');
+  const [isActive, setActive] = useState(true);
+  const [Danger, SetDanger] = useState(false);
+  const [Visible, setVisible] = useState(false);
+  const [diabetes, setdiabetes] = useState('Diabetes');
+
+  const changeColor = () => {
+    if (IsSelected == '#78CE34') {
+      setIsSelected('#ECECEC');
+    } else {
+      setIsSelected('#78CE34');
+    }
+  };
+
   return (
     <View style={{flex: 1}}>
       <ScrollView>
@@ -62,17 +71,95 @@ export default function PageTree({navigation}) {
         </View>
         <View style={styles.content}>
           <Text style={styles.txtContent}>Menu</Text>
-          <TouchableOpacity>
-            <ItemCards mealTime="Halo" />
+          <TouchableOpacity onPress={() => setActive(true)}>
+            {isActive ? (
+              <ItemCards mealTime="Halo" color="#78CE34" />
+            ) : (
+              <ItemCards mealTime="Halo" color="#fff" />
+            )}
           </TouchableOpacity>
         </View>
         <View style={styles.content}>
-          <TouchableOpacity onPress={createTwoButtonAlert}>
+          <TouchableOpacity onPress={() => SetDanger(!Danger)}>
             <Text style={styles.txtWarning}>
               Menu ini mungkin berbahaya bagi anda!
             </Text>
-            <ItemCards mealTime="wkwkwk" />
+            <ItemCards mealTime="wkwkwk" color={IsSelected} />
           </TouchableOpacity>
+          <Modal isVisible={Visible}>
+            <View
+              style={{backgroundColor: 'white', padding: 20, borderRadius: 10}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginBottom: 10,
+                }}>
+                <Icon
+                  name="exclamation-circle"
+                  size={26}
+                  color="crimson"
+                  style={{marginRight: 10}}
+                />
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000'}}>
+                  Warning
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{textAlign: 'center', fontSize: 16, color: '#000'}}>
+                  Anda memiliki riwayat penyakit penyakit{' '}
+                  <Text style={{color: 'crimson', fontWeight: 'bold'}}>
+                    Diabetes
+                  </Text>{' '}
+                  menu ini megandung bahan makanan yang dapat memperburuk
+                  kondisi anda berdasarkan hukum kesehatan
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'flex-end',
+                  marginTop: 20,
+                }}>
+                <TouchableOpacity
+                  style={{
+                    padding: 5,
+                    borderWidth: 1,
+                    borderRadius: 5,
+                    marginHorizontal: 10,
+                    borderColor: 'crimson',
+                  }}
+                  onPress={() => {
+                    setVisible(!Visible);
+                    navigation.navigate('PageFour');
+                  }}>
+                  <Text style={{fontSize: 14, color: 'crimson'}}>
+                    I Understand
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    padding: 5,
+                    paddingHorizontal: 10,
+                    borderWidth: 1,
+                    borderRadius: 5,
+                    marginLeft: 10,
+                    borderColor: 'crimson',
+                    backgroundColor: 'crimson',
+                  }}
+                  onPress={() => setVisible(!Visible)}>
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      color: 'white',
+                    }}>
+                    Cancel
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
         </View>
       </ScrollView>
       <View>
@@ -98,7 +185,10 @@ export default function PageTree({navigation}) {
             right: 25,
           }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('PageFour')}
+            onPress={() => {
+              Danger ? setVisible(true) : navigation.navigate('PageFour');
+              // setVisible(true)
+            }}
             style={styles.btnNext}
             activeOpacity={0.8}>
             <AntDesign name="right" style={{fontSize: 25, color: '#fff'}} />
@@ -111,7 +201,6 @@ export default function PageTree({navigation}) {
 
 const styles = StyleSheet.create({
   cards: {
-    backgroundColor: '#95CD41',
     marginTop: 10,
     padding: 10,
     borderRadius: 10,
