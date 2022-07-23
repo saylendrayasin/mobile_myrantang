@@ -75,7 +75,7 @@ export default function Explore() {
         },
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('You can use the camera');
+        console.log('You can access location');
 
         geolocation.getCurrentPosition(position => {
           alert(JSON.stringify(position));
@@ -85,7 +85,7 @@ export default function Explore() {
           // setLongitude({alongitude: position.coords.longitude});
         });
       } else {
-        console.log('Camera permission denied');
+        console.log('Location permission denied');
       }
       // } catch (err) {
       // console.warn(err);
