@@ -35,9 +35,7 @@ export default function PageTwo({navigation}) {
     <View style={{flex: 1}}>
       <View style={styles.viewTitle}>
         <Text style={styles.txtTitle}>Health Check</Text>
-        <Text style={styles.txtUnderTitle}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        </Text>
+        <Text style={styles.txtUnderTitle}>Fill, if you have health issue</Text>
       </View>
       <View style={styles.viewContent}>
         <Text>My Condition</Text>
@@ -124,7 +122,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#456711',
+    backgroundColor: '#95CD41',
   },
   gridView: {
     marginTop: 10,

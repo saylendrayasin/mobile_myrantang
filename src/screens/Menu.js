@@ -12,11 +12,12 @@ import {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 function ItemCards(props) {
+  const [color, setColor] = useState('#78CE34');
   return (
     <View style={styles.cardContainer}>
-      <View style={styles.cards}>
+      <View style={[styles.cards, props.active ? styles.active : styles.cards]}>
         <View>
-          <Text style={styles.cardTitle}>Lorem Ipsum</Text>
+          <Text style={styles.cardTitle}>{props.title}</Text>
           <Text style={styles.cardMealTime}>{props.mealTime}</Text>
         </View>
         <Text style={styles.cardDetails}>Click for details</Text>
@@ -34,7 +35,7 @@ function ItemCards(props) {
 }
 
 export default function Menu({navigation}) {
-  const [IsSelected, setIsSelected] = useState(true);
+  const [menu, setMenu] = useState('menu1');
   const createTwoButtonAlert = () =>
     Alert.alert(
       'Warning',
@@ -56,27 +57,37 @@ export default function Menu({navigation}) {
       <ScrollView>
         <View style={styles.viewTitle}>
           <Text style={styles.txtTitle}>Choose Menu</Text>
-          <Text style={styles.txtUnderTitle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-          </Text>
+          <Text style={styles.txtUnderTitle}>Choose your menu</Text>
         </View>
         <View style={styles.content}>
           <Text style={styles.txtContent}>Menu</Text>
-          <TouchableOpacity>
-            <ItemCards mealTime="Halo" />
+          <TouchableOpacity onPress={() => setMenu('menu1')}>
+            <ItemCards
+              title="Vegan"
+              mealTime="Just vegetable without meat"
+              active={menu === 'menu1' ? true : false}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.content}>
-          <TouchableOpacity onPress={createTwoButtonAlert}>
+          <TouchableOpacity onPress={() => setMenu('menu2')}>
             <Text style={styles.txtWarning}>
-              Menu ini mungkin berbahaya bagi anda!
+              This menu may be dangerous for you!
             </Text>
-            <ItemCards mealTime="wkwkwk" />
+            <ItemCards
+              title="Meat"
+              mealTime="Contain more meat"
+              active={menu === 'menu2' ? true : false}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.content}>
-          <TouchableOpacity>
-            <ItemCards mealTime="Anjim" />
+          <TouchableOpacity onPress={() => setMenu('menu3')}>
+            <ItemCards
+              title="Diet"
+              mealTime="Less calories, less sugar"
+              active={menu === 'menu3' ? true : false}
+            />
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -99,6 +110,11 @@ export default function Menu({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  active: {
+    backgroundColor: '#6EA31E',
+    // borderWidth: 3,
+    // borderColor: '#456711',
+  },
   // btnNext: {
   //   flexDirection: 'row',
   //   alignItems: 'center',
@@ -146,7 +162,7 @@ const styles = StyleSheet.create({
     // flex: 1
     marginTop: 10,
   },
-  txtContent: {paddingHorizontal: 10},
+  txtContent: {paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold'},
   viewTitle: {
     // flex: 1,
     alignItems: 'center',

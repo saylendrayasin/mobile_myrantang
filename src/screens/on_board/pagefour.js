@@ -25,7 +25,9 @@ export default function PageFour({navigation}) {
       <ScrollView>
         <View style={styles.viewTitle}>
           <Text style={styles.txtTitle}>Address Information</Text>
-          <Text style={styles.txtUnderTitle}>lorem ipsum dolor</Text>
+          <Text style={styles.txtUnderTitle}>
+            Fill your adderss information
+          </Text>
         </View>
         <View style={styles.viewContent}>
           <Text style={styles.txtContainer}>Example</Text>
@@ -94,27 +96,13 @@ export default function PageFour({navigation}) {
             position: 'absolute',
             bottom: 25,
             zIndex: 3,
-            left: 25,
-          }}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.btnBack}
-            activeOpacity={0.8}>
-            <AntDesign name="left" style={{fontSize: 25, color: '#fff'}} />
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 25,
-            zIndex: 3,
             right: 25,
           }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('PageFive')}
+            onPress={() => navigation.navigate('PageSix')}
             style={styles.btnNext}
             activeOpacity={0.8}>
-            <AntDesign name="right" style={{fontSize: 25, color: '#fff'}} />
+            <Icon name="check" style={{fontSize: 25, color: '#fff'}} />
           </TouchableOpacity>
         </View>
       </View>
@@ -153,7 +141,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#456711',
+    backgroundColor: '#95CD41',
   },
   viewTitle: {
     alignItems: 'center',
@@ -166,7 +154,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   txtUnderTitle: {
-    fontSize: 20,
+    fontSize: 14,
   },
   viewContent: {
     padding: 10,

@@ -14,24 +14,16 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 function ItemCards(props) {
-  const [Color, setColor] = useState(props.color);
-
-  const changeColor = () => {
-    if (Color == '#78CE34') {
-      setColor('#ECECEC');
-    } else {
-      setColor('#78CE34');
-    }
-  };
+  const [color, setColor] = useState('#78CE34');
 
   return (
     <View style={styles.cardContainer}>
-      <View style={[styles.cards, {backgroundColor: Color}]}>
+      <View style={[styles.cards, props.active ? styles.active : styles.cards]}>
         <View>
-          <Text style={styles.cardTitle}>Lorem Ipsum</Text>
+          <Text style={styles.cardTitle}>{props.title}</Text>
           <Text style={styles.cardMealTime}>{props.mealTime}</Text>
         </View>
-        <Text style={styles.cardDetails}>Click for details</Text>
+        <Text style={styles.cardDetails}>Click to choose</Text>
         <Image
           source={require('../../image/cardImg.png')}
           style={styles.cardImg}
@@ -46,19 +38,10 @@ function ItemCards(props) {
 }
 
 export default function PageTree({navigation}) {
-  const [IsSelected, setIsSelected] = useState('#78CE34');
-  const [isActive, setActive] = useState(true);
   const [Danger, SetDanger] = useState(false);
   const [Visible, setVisible] = useState(false);
   const [diabetes, setdiabetes] = useState('Diabetes');
-
-  const changeColor = () => {
-    if (IsSelected == '#78CE34') {
-      setIsSelected('#ECECEC');
-    } else {
-      setIsSelected('#78CE34');
-    }
-  };
+  const [menu, setMenu] = useState('menu1');
 
   return (
     <View style={{flex: 1}}>
@@ -66,26 +49,51 @@ export default function PageTree({navigation}) {
         <View style={styles.viewTitle}>
           <Text style={styles.txtTitle}>Choose Menu</Text>
           <Text style={styles.txtUnderTitle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            Choose your menu for this week
           </Text>
         </View>
         <View style={styles.content}>
           <Text style={styles.txtContent}>Menu</Text>
-          <TouchableOpacity onPress={() => setActive(true)}>
-            {isActive ? (
-              <ItemCards mealTime="Halo" color="#78CE34" />
-            ) : (
-              <ItemCards mealTime="Halo" color="#fff" />
-            )}
+          <TouchableOpacity
+            onPress={() => {
+              SetDanger(false);
+              setMenu('menu1');
+            }}>
+            <ItemCards
+              title="Vegan"
+              mealTime="Just vegetable without meat"
+              active={menu === 'menu1' ? true : false}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.content}>
-          <TouchableOpacity onPress={() => SetDanger(!Danger)}>
+          <TouchableOpacity
+            onPress={() => {
+              SetDanger(true);
+              setMenu('menu2');
+            }}>
             <Text style={styles.txtWarning}>
-              Menu ini mungkin berbahaya bagi anda!
+              This menu may be dangerous for you!
             </Text>
-            <ItemCards mealTime="wkwkwk" color={IsSelected} />
+            <ItemCards
+              title="Meat"
+              mealTime="Contain more meat"
+              active={menu === 'menu2' ? true : false}
+            />
           </TouchableOpacity>
+          <View style={styles.content}>
+            <TouchableOpacity
+              onPress={() => {
+                SetDanger(false);
+                setMenu('menu3');
+              }}>
+              <ItemCards
+                title="Diet"
+                mealTime="Less calories, less sugar"
+                active={menu === 'menu3' ? true : false}
+              />
+            </TouchableOpacity>
+          </View>
           <Modal isVisible={Visible}>
             <View
               style={{backgroundColor: 'white', padding: 20, borderRadius: 10}}>
@@ -132,7 +140,7 @@ export default function PageTree({navigation}) {
                   }}
                   onPress={() => {
                     setVisible(!Visible);
-                    navigation.navigate('PageFour');
+                    navigation.navigate('PageSix');
                   }}>
                   <Text style={{fontSize: 14, color: 'crimson'}}>
                     I Understand
@@ -186,12 +194,16 @@ export default function PageTree({navigation}) {
           }}>
           <TouchableOpacity
             onPress={() => {
-              Danger ? setVisible(true) : navigation.navigate('PageFour');
+              Danger ? setVisible(true) : navigation.navigate('PageSix');
               // setVisible(true)
             }}
             style={styles.btnNext}
             activeOpacity={0.8}>
-            <AntDesign name="right" style={{fontSize: 25, color: '#fff'}} />
+            <Text style={{color: '#fff'}}>Checkout</Text>
+            <AntDesign
+              name="right"
+              style={{fontSize: 25, color: '#fff', marginLeft: 10}}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -200,11 +212,17 @@ export default function PageTree({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  active: {
+    backgroundColor: '#6EA31E',
+    // borderWidth: 3,
+    // borderColor: '#456711',
+  },
   cards: {
+    backgroundColor: '#95CD41',
     marginTop: 10,
     padding: 10,
     borderRadius: 10,
-    height: 120,
+    height: 100,
     justifyContent: 'space-between',
     overflow: 'hidden',
   },
@@ -243,19 +261,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#929292',
   },
   btnNext: {
+    paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#456711',
+    backgroundColor: '#95CD41',
   },
   content: {
     // flex: 1
     marginTop: 10,
   },
-  txtContent: {paddingHorizontal: 10},
+  txtContent: {paddingHorizontal: 20, fontSize: 16, fontWeight: 'bold'},
   viewTitle: {
     // flex: 1,
     alignItems: 'center',

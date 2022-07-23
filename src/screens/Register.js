@@ -66,7 +66,7 @@ const Register = ({navigation}) => {
             <Text style={styles.txtRantang}>Rantang</Text>
           </View>
           <View style={styles.viewTxt}>
-            <Text style={styles.txtFirst}>Selamat Datang...</Text>
+            <Text style={styles.txtFirst}>Your Healthy Menu</Text>
           </View>
         </ImageBackground>
       </View>

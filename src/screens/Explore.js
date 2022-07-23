@@ -107,19 +107,19 @@ export default function Explore() {
         region={{
           latitude: parseFloat(alatitude),
           longitude: parseFloat(alongitude),
-          // latitude: alatitude,
-          // longitude: alongitude,
+          // latitude: -0.8917,
+          // longitude: 119.8707,
           latitudeDelta: 0.005,
-          longitudeDelta: 0.0005,
+          longitudeDelta: 0.5,
         }}>
         <Marker
           coordinate={{
-            latitude: parseFloat(alatitude),
-            longitude: parseFloat(alongitude),
+            latitude: 37.300195804019445,
+            longitude: -121.78449667990209,
             // latitude: alatitude,
             // longitude: alongitude,
           }}
-          pinColor="blue"
+          pinColor="#78CE34"
           draggable={true}
           onDragStart={e => {
             console.log('Drag Start: ', e.nativeEvent.coordinate);
@@ -130,8 +130,178 @@ export default function Explore() {
             // setLatitude(JSON.stringify(e.nativeEvent.coordinate.latitude));
             // setLongitude(JSON.stringify(e.nativeEvent.coordinate.longitude));
           }}>
-          <Callout>
-            <Text>Location Pin</Text>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        <Marker
+          coordinate={{
+            latitude: 37.27389620100425,
+            longitude: -121.98677580803631,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+
+            // setLatitude(JSON.stringify(e.nativeEvent.coordinate.latitude));
+            // setLongitude(JSON.stringify(e.nativeEvent.coordinate.longitude));
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        {/* Bitung */}
+        <Marker
+          coordinate={{
+            latitude: 1.440374,
+            longitude: 125.121652,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        {/* Minahasa Utara */}
+        <Marker
+          coordinate={{
+            latitude: 1.216884,
+            longitude: 124.818259,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        {/* Bali */}
+        <Marker
+          coordinate={{
+            latitude: 1.216884,
+            longitude: 115.171127,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        {/* Jakarta */}
+        <Marker
+          coordinate={{
+            latitude: -6.121435,
+            longitude: 106.774124,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        {/* Balikpapan */}
+        <Marker
+          coordinate={{
+            latitude: -1.265386,
+            longitude: 116.8312,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        {/* Aceh */}
+        <Marker
+          coordinate={{
+            latitude: 4.695135,
+            longitude: 96.749397,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
+          </Callout>
+        </Marker>
+
+        {/* Jayapura */}
+        <Marker
+          coordinate={{
+            latitude: -2.53371,
+            longitude: 140.71813,
+            // latitude: alatitude,
+            // longitude: alongitude,
+          }}
+          pinColor="#78CE34"
+          draggable={true}
+          onDragStart={e => {
+            console.log('Drag Start: ', e.nativeEvent.coordinate);
+          }}
+          onDragEnd={e => {
+            console.log('Drag End: ', e.nativeEvent.coordinate);
+          }}>
+          <Callout style={{justifyContent: 'center'}}>
+            <Text>Outlet</Text>
           </Callout>
         </Marker>
 

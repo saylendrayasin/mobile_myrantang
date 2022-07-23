@@ -22,6 +22,7 @@ import PageTwo from './on_board/pagetwo';
 import PageTree from './on_board/pagetree';
 import PageFour from './on_board/pagefour';
 import PageFive from './on_board/pagefive';
+import PageSix from './on_board/pagesix';
 import {Icon} from '@rneui/base';
 import Menu from './Menu';
 
@@ -134,6 +135,7 @@ export default function Route() {
         <Stack.Screen name="PageTree" component={PageTree} />
         <Stack.Screen name="PageFour" component={PageFour} />
         <Stack.Screen name="PageFive" component={PageFive} />
+        <Stack.Screen name="PageSix" component={PageSix} />
         <Stack.Screen name="Home" component={NavScreen} />
       </Stack.Navigator>
     </NavigationContainer>

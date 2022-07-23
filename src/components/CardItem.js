@@ -24,38 +24,38 @@ export default function CardItem(props) {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(-1);
 
-  function renderDropdown() {
+  function renderDropdown(props) {
     return (
       <View style={styles.dropdownContainer}>
         <View style={styles.dropdownTable}>
           <Text style={styles.menuTitle}>Menu</Text>
           <View style={styles.rowContainer}>
-            <Text>Babi putar kurma</Text>
-            <Text>400g(20cal)</Text>
+            <Text>Nasi</Text>
+            <Text>300g(30cal)</Text>
           </View>
           <Line />
           <View style={styles.rowContainer}>
-            <Text>Nasi</Text>
-            <Text>400g(20cal)</Text>
+            <Text>Kangkung Tumis</Text>
+            <Text>400g(40cal)</Text>
           </View>
           <Line />
           <View style={styles.rowContainer}>
             <Text>Pudding</Text>
-            <Text>400g(20cal)</Text>
+            <Text>100g(10cal)</Text>
           </View>
           <Line />
           <View style={styles.rowContainer}>
             <Text>Teh</Text>
-            <Text>400g(20cal)</Text>
+            <Text>40g(4cal)</Text>
           </View>
         </View>
         <View>
           <Line />
           <View style={styles.rowContainer}>
-            <Text>Senin, Januari 2022</Text>
+            <Text>18, January 2022</Text>
             <View>
               <Text style={{fontSize: 12}}>Total calories</Text>
-              <Text style={{textAlign: 'right'}}>300</Text>
+              <Text style={{textAlign: 'right'}}>84</Text>
             </View>
           </View>
         </View>
@@ -71,7 +71,7 @@ export default function CardItem(props) {
           setOpen(!open);
         }}>
         <View>
-          <Text style={styles.cardTitle}>Lorem Ipsum</Text>
+          <Text style={styles.cardTitle}>Vegan</Text>
           <Text style={styles.cardMealTime}>{props.mealTime}</Text>
         </View>
         <Text style={styles.cardDetails}>Click for details</Text>

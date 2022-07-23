@@ -34,8 +34,8 @@ function OnBoardOne({navigation}) {
   return (
     <View style={styles.headers}>
       <View style={{flex: 1, zIndex: 3, alignItems: 'center', marginTop: 10}}>
-        <Text style={styles.txtHeaderAts}>lorem Ipsun Dolor</Text>
-        <Text style={styles.txtHeaderBwh}>Rantang</Text>
+        <Text style={styles.txtHeaderAts}>Choose Healthy</Text>
+        <Text style={styles.txtHeaderBwh}>Menu</Text>
       </View>
       <View style={styles.viewimgTopRightAts}>
         <Image source={require('../../image/SplashTopRightAts.png')} />
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   txtFooterBwh: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: 'white',
+    color: '#456711',
   },
 });
 

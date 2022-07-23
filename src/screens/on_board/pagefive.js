@@ -91,31 +91,13 @@ export default function PageFive({navigation}) {
             position: 'absolute',
             bottom: 25,
             zIndex: 3,
-            left: 25,
-          }}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.btnBack}
-            activeOpacity={0.8}>
-            <AntDesign name="left" style={{fontSize: 25, color: '#fff'}} />
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 25,
-            zIndex: 3,
             right: 25,
           }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('PageSix')}
             style={styles.btnNext}
             activeOpacity={0.8}>
-            <Text style={{color: '#fff'}}>Get Started</Text>
-            <AntDesign
-              name="right"
-              style={{fontSize: 25, color: '#fff', marginLeft: 10}}
-            />
+            <Icon name="check" style={{fontSize: 25, color: '#fff'}} />
           </TouchableOpacity>
         </View>
       </View>
@@ -154,7 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#456711',
+    backgroundColor: '#95CD41',
   },
   viewTitle: {
     alignItems: 'center',

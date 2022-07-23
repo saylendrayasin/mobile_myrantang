@@ -15,6 +15,8 @@ import Pf from './src/screens/on_board/pagefour';
 import Pt from './src/screens/on_board/pagetree';
 import Ptw from './src/screens/on_board/pagetwo';
 import Pfv from './src/screens/on_board/pagefive';
+import Ps from './src/screens/on_board/pagesix';
+
 import Route from './src/screens/Route';
 import Menu from './src/screens/Menu';
 import Explore from './src/screens/Explore';
@@ -32,7 +34,7 @@ function App() {
     // </NavigationContainer>
 
     <View style={{flex: 1}}>
-      <Pt />
+      <Route />
     </View>
   );
 }

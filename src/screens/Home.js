@@ -1,11 +1,38 @@
-import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import React, {useEffect} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  BackHandler,
+  Alert,
+} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Profile from '../components/Profile';
 import CardContainer from '../components/CardContainer';
 import Cta from '../components/Cta';
 
 export default function App() {
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+        {
+          text: 'Cancel',
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {text: 'YES', onPress: () => BackHandler.exitApp()},
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
   return (
     <SafeAreaProvider>
       <ScrollView bounces={true}>
@@ -15,6 +42,7 @@ export default function App() {
           <CardContainer />
           <Cta />
           <Cta />
+          <View style={{marginTop: 100}}></View>
         </View>
       </ScrollView>
     </SafeAreaProvider>
