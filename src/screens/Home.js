@@ -40,8 +40,8 @@ export default function App() {
           <Profile />
           <Text style={styles.TextMenu}>Menu</Text>
           <CardContainer />
-          <Cta />
-          <Cta />
+          <Cta text="Take care of your body. It's the only place you have to live" />
+          <Cta text="The first wealth is health" />
           <View style={{marginTop: 100}}></View>
         </View>
       </ScrollView>

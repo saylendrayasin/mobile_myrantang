@@ -8,6 +8,8 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
+import Modal from 'react-native-modal';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -36,29 +38,93 @@ function ItemCards(props) {
 
 export default function Menu({navigation}) {
   const [menu, setMenu] = useState('menu1');
-  const createTwoButtonAlert = () =>
-    Alert.alert(
-      'Warning',
-      'Anda memiliki riwayat penyakit diabetes. menu ini megandung bahan makanan yang dapat memperburuk kondisi anda',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {
-          text: 'I Understand',
-          onPress: () => console.log('I Understand Pressed'),
-        },
-      ],
-    );
+  const [Visible, setVisible] = useState(false);
+  const [diabetes, setdiabetes] = useState('Diabetes');
+
   return (
     <View style={{flex: 1}}>
       <ScrollView>
         <View style={styles.viewTitle}>
           <Text style={styles.txtTitle}>Choose Menu</Text>
-          <Text style={styles.txtUnderTitle}>Choose your menu</Text>
+          <Text style={styles.txtUnderTitle}>Edit your plan next week</Text>
         </View>
+
+        <Modal isVisible={Visible}>
+          <View
+            style={{backgroundColor: 'white', padding: 20, borderRadius: 10}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginBottom: 10,
+              }}>
+              <Icon
+                name="exclamation-circle"
+                size={26}
+                color="crimson"
+                style={{marginRight: 10}}
+              />
+              <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000'}}>
+                Warning
+              </Text>
+            </View>
+            <View>
+              <Text style={{textAlign: 'center', fontSize: 16, color: '#000'}}>
+                Anda memiliki riwayat penyakit penyakit{' '}
+                <Text style={{color: 'crimson', fontWeight: 'bold'}}>
+                  Diabetes
+                </Text>{' '}
+                menu ini megandung bahan makanan yang dapat memperburuk kondisi
+                anda berdasarkan hukum kesehatan
+              </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                marginTop: 20,
+              }}>
+              <TouchableOpacity
+                style={{
+                  padding: 5,
+                  borderWidth: 1,
+                  borderRadius: 5,
+                  marginHorizontal: 10,
+                  borderColor: 'crimson',
+                }}
+                onPress={() => {
+                  setVisible(!Visible);
+                }}>
+                <Text style={{fontSize: 14, color: 'crimson'}}>
+                  I Understand
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  padding: 5,
+                  paddingHorizontal: 10,
+                  borderWidth: 1,
+                  borderRadius: 5,
+                  marginLeft: 10,
+                  borderColor: 'crimson',
+                  backgroundColor: 'crimson',
+                }}
+                onPress={() => {
+                  setVisible(!Visible);
+                  setMenu('menu1');
+                }}>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: 'white',
+                  }}>
+                  Cancel
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
         <View style={styles.content}>
           <Text style={styles.txtContent}>Menu</Text>
           <TouchableOpacity onPress={() => setMenu('menu1')}>
@@ -70,7 +136,11 @@ export default function Menu({navigation}) {
           </TouchableOpacity>
         </View>
         <View style={styles.content}>
-          <TouchableOpacity onPress={() => setMenu('menu2')}>
+          <TouchableOpacity
+            onPress={() => {
+              setMenu('menu2');
+              setVisible(!Visible);
+            }}>
             <Text style={styles.txtWarning}>
               This menu may be dangerous for you!
             </Text>
@@ -129,7 +199,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 10,
     borderRadius: 10,
-    height: 120,
+    height: 100,
     justifyContent: 'space-between',
     overflow: 'hidden',
   },

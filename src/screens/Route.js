@@ -104,7 +104,7 @@ const NavScreen = () => {
         name="Explore"
         component={Explore}
         options={{
-          tabBarLabel: 'Location',
+          tabBarLabel: 'Outlet',
           tabBarIcon: ({color}) => (
             <MaterialIcons name="location-on" color={color} size={30} />
           ),

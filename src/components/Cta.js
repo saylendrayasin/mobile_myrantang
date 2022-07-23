@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {Avatar, Button} from '@rneui/themed';
 
-export default function Cta() {
+export default function Cta(props) {
   return (
     <View>
       <View style={styles.card}>
@@ -10,14 +10,12 @@ export default function Cta() {
           <Avatar
             size={64}
             rounded
-            source={{uri: 'https://randomuser.me/api/portraits/women/57.jpg'}}
+            source={{uri: 'https://randomuser.me/api/portraits/men/1.jpg'}}
             style={styles.avatar}
           />
-          <Text style={styles.TextCta}>
-            Lorem ipsum dolor sit amet consectetur adipisicing
-          </Text>
+          <Text style={styles.TextCta}>{props.text}</Text>
         </View>
-        <Text style={styles.cardDetails}>Click for details</Text>
+        <Text style={styles.cardDetails}></Text>
         <Image source={require('../image/Ellipse5.png')} style={styles.bgvec} />
         <Image
           source={require('../image/Ellipse6.png')}
@@ -53,6 +51,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   TextCta: {
+    zIndex: 3,
     width: 300,
     fontSize: 18,
     fontWeight: 'bold',

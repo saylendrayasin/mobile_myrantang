@@ -10,10 +10,10 @@ export default function Profile() {
           <Avatar
             size={64}
             rounded
-            source={{uri: 'https://randomuser.me/api/portraits/women/57.jpg'}}
+            source={{uri: 'https://randomuser.me/api/portraits/men/1.jpg'}}
             style={styles.avatar}
           />
-          <Text style={styles.profileName}>Tanta Lorem</Text>
+          <Text style={styles.profileName}>Mr. Jordy</Text>
         </View>
         <View style={styles.caloriesContainer}>
           <Text style={styles.caloriesText}>Total Calories</Text>

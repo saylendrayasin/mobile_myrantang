@@ -105,6 +105,7 @@ const Register = ({navigation}) => {
               value={email}
               onChangeText={changeEmail}
               placeholder="Email"
+              keyboardType="email-address"
             />
           </SafeAreaView>
 
@@ -131,7 +132,6 @@ const Register = ({navigation}) => {
               value={getDate()}
               placeholder="Birth Date"
               style={{flex: 0.9}}
-              keyboardType=""
             />
 
             <TouchableOpacity
